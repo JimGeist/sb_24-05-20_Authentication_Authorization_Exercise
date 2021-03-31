@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+{% block content %}
+
+<h3>Profile for {{ full_name }}</h3>
+
+{{ form.hidden_tag() }}
+{% for field in form if field.widget.input_type != 'hidden'%}
+<div>
+    {{field.label(class_="lbl")}}
+    {% for err in field.errors %}
+    {% endfor %}
+    {{field(class_="inp view-only")}}
+</div>
+{% endfor %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul class="flashes">
+    {% for category, message in messages %}
+    <li class="flash-list"><span class="{{ category }}">{{ message|safe }}</span></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<hr>
+<button class="btn"><a href="/user/{{ form_user }}/feedback/add">Add Feedback</a></button>
+
+<div>
+    {% if feedback %}
+    <h3>My Feedback</h3>
+    <ul class="feedback">
+        {% for comment in feedback %}
+        <li><a class="list-link" href="/feedback/{{ comment.id }}/update"><button class="btn-sm">U</button></a>
+            <form class="dsp-inline" action="/feedback/{{ comment.id }}/delete" method="POST"><button
+                    class="btn-sm btn-del">X</button></form><a class="list-link list-link-color"
+                href="/feedback/{{ comment.id }}/update">
+                <span class="list-feedback-title">{{ comment.title }}</span>
+                &nbsp;&mdash;&nbsp;<span class="list-feedback-content">{{ comment.content }}</span></a>
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+</div>
+
+<form>
+    <button class="btn" formaction="/logout" formmethod="POST">Logout</button>
+    <button class="btn btn-del" formaction="/user/{{ form_user }}/delete" formmethod="POST">
+        !! Delete {{ form_user }} !!</button>
+</form>
+
+{% endblock %}

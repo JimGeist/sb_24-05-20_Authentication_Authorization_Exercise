@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+{% block content %}
+<h3>{{ mode }} Feedback</h3>
+<form>
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <div>
+        {{ field.label(class_="lbl") }}
+        {% for err in field.errors %}
+        {% endfor %}
+        {{ field(class_="inp") }}
+    </div>
+    {% endfor %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="flash-list"><span class="{{ category }}">{{ message|safe }}</span></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <button class="btn" type="submit" formmethod="POST">{{ mode }} Feedback</button>
+
+</form>
+<form>
+    <button class="btn" formaction="/user/{{ username }}" formmethod="GET">Cancel</button>
+    <button class="btn" type="submit" formaction="/logout" formmethod="POST">Logout</button>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% block content %}
+
+<h2>Welcome to Flask Feedback</h2>
+<h3>Please Login by providing your credentials.</h3>
+<h4>Not Registered? Use our <a class="main-link-color" href="/register">registration page</a>.</h4>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <div>
+        {{field.label(class_="lbl")}}
+        {% for err in field.errors %}
+        <span class="error-fld">{{err}}</span>
+        {% endfor %}
+        {{field(class_="inp")}}
+    </div>
+    {% endfor %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="flash-list"><span class="{{ category }}">{{ message|safe }}</span></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <button class="btn btn-add">Login</button>
+</form>
+
+{% endblock %}

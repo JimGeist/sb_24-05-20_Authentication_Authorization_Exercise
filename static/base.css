@@ -1,0 +1,142 @@
+body {
+    background-color: rgb(72,72,94);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #CCC;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-weight: normal;
+}
+
+li {
+    margin-top: 0.5rem;
+}
+
+.lbl {
+    margin-top: 1.00rem;
+    display: block;
+    font-size: 1.00rem;
+    font-weight: bold;
+}
+
+.inp {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: normal;
+    width: 30.00rem;
+}
+
+.list-feedback-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.list-feedback-content {
+    font-size: 1.00rem;
+    font-weight: normal;
+}
+
+.list-link {
+    text-decoration: none;
+}
+
+.list-link-color {
+    color: #CCC;
+    text-decoration: none;
+}
+
+.main-link-color {
+    color: #FFF;
+    font-weight: bold;
+}
+
+.view-only {
+    pointer-events: none;
+    background-color: rgb(72,72,94);
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 1.00rem;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1.00rem;
+    border-radius: 0.75rem;
+}
+
+.btn-sm {
+    margin-right: 0.50rem;
+    padding: 0px 5px 0px 5px;
+    font-size: 1.00rem;
+    border-radius: 0.50rem;
+}
+
+.btn-del {
+    font-size: 1.00rem;
+    font-weight: bold;
+    color: #D00000;
+}
+
+.btn-add {
+    background-color: rgb(0, 128, 0);
+    font-weight: bold;
+    color: #efefef;
+}
+
+.error-fld {
+    display: block;
+    color: #D00000;
+    font-size: 0.75rem;
+}
+
+.error-flash {
+    margin-top: 1.50rem;
+    margin-bottom: 1.00rem;
+    color: #D00000;
+    font-size: 1.00rem;
+    background-color: #aaa;
+    padding: 0.25rem 1.00rem 0.25rem 1.00rem;
+    border-radius: 0.75rem;
+}
+
+.flash-error {
+    margin-top: 1.50rem;
+    margin-bottom: 1.00rem;
+    color: #D00000;
+    font-size: 1.00rem;
+    background-color: #aaa;
+    padding: 0.25rem 1.00rem 0.25rem 1.00rem;
+    border-radius: 0.75rem;
+}
+
+.flash-okay {
+    margin-top: 1.50rem;
+    margin-bottom: 1.00rem;
+    color: #008000;
+    font-size: 1.00rem;
+    background-color: #aaa;
+    padding: 0.25rem 1.00rem 0.25rem 1.00rem;
+    border-radius: 0.75rem;
+}
+
+.flashes, .feedback {
+    list-style-type: none;
+}
+
+.flash-list {
+    margin-top: 1.00rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.dsp-inline {
+    display: inline;
+}
